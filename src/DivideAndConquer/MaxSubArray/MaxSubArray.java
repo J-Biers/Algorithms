@@ -1,7 +1,7 @@
 package DivideAndConquer.MaxSubArray;
 
 import util.Triple;
-
+import java.util.Arrays;
 
 public class MaxSubArray {
 
@@ -12,7 +12,8 @@ public class MaxSubArray {
      */
     public int[] getMaxSubArray(int[] a) {
         if (a == null) return null;
-        return null;
+        Triple<Integer, Integer, Integer> t = maxSubArray(a, 0, a.length - 1);
+        return Arrays.copyOfRange(a, t.x, t.y);
     }
 
     /**
