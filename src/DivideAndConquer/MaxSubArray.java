@@ -1,4 +1,4 @@
-package DivideAndConquer.MaxSubArray;
+package DivideAndConquer;
 
 import util.Triple;
 import java.util.Arrays;
