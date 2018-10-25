@@ -12,8 +12,9 @@ public class MaxSubArray {
      */
     public int[] getMaxSubArray(int[] a) {
         if (a == null) return null;
+        else if (a.length == 0 || a.length == 1) return a;
         Triple<Integer, Integer, Integer> t = maxSubArray(a, 0, a.length - 1);
-        return Arrays.copyOfRange(a, t.x, t.y);
+        return Arrays.copyOfRange(a, t.x, t.y + 1);
     }
 
     /**
@@ -24,9 +25,9 @@ public class MaxSubArray {
      * @return Returns the triple (lower bound, upper bound, sum) of the maximum sub array.
      */
     private Triple<Integer,Integer,Integer> maxSubArray(int[] a, int low, int high) {
-        if (low == high) return new Triple<Integer,Integer,Integer>(low, high, a[low]);
+        if (low == high) return new Triple<>(low, high, a[low]);
 
-        int mid = (low + high / 2);
+        int mid = (low + high) / 2;
 
         Triple max = maxSubArray(a, low, mid);
         max = maxTriple(max, maxSubArray(a, mid + 1, high));
