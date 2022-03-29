@@ -29,7 +29,7 @@ public class MaxSubArray {
 
         int mid = (low + high) / 2;
 
-        Triple max = maxSubArray(a, low, mid);
+        Triple<Integer, Integer, Integer> max = maxSubArray(a, low, mid);
         max = maxTriple(max, maxSubArray(a, mid + 1, high));
         max = maxTriple(max, maxAcrossMid(a, low, mid, high));
 
@@ -66,6 +66,8 @@ public class MaxSubArray {
                 rightBound = i;
             }
         }
+
+        //noinspection SuspiciousNameCombination
         return new Triple<>(leftBound, rightBound, leftSum + rightSum);
     }
 
